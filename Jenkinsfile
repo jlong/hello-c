@@ -4,4 +4,7 @@ node {
 
   stage "Build"
   sh "make hello"
+
+  stage "Test"
+  sh "bats ."
 }
