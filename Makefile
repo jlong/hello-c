@@ -12,3 +12,8 @@ hello: hello.c
 
 clean:
 	$(RM) hello
+
+test: clean hello
+	bats .
+
+tests: test

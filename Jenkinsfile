@@ -6,5 +6,5 @@ node {
   sh "make hello"
 
   stage "Test"
-  sh "bats ."
+  sh "make test"
 }
