@@ -4,4 +4,7 @@ WORKDIR /hello
 COPY . /hello/
 RUN make clean
 RUN make hello
-ENTRYPOINT ["./hello"]
+RUN mv hello /usr/bin
+WORKDIR /
+RUN rm -r /hello
+ENTRYPOINT ["hello"]
