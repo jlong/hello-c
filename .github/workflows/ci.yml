@@ -1,5 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
+# Continuous integration with GitHub actions
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -22,12 +21,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Install bats
+        run: sudo apt-get install bats
       - name: build
         run: make
 
+  # Test it
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install bats
+        run: sudo apt-get install bats
       - name: tests
         run: make tests
